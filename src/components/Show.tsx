@@ -5,22 +5,13 @@ import { getShow } from "../redux/action";
 import "./Show.css";
 import { AppState } from "../redux/store";
 
-// type Show = {
-//    image: { original: string }
-//    name: string
-//    network: { name: string }
-//    premiered: string
-//    language: string
-//    status: string
-// }
+interface ShowProps {
+   show: any
+   getShow: (id: any) => void
+}
 
-// interface ShowProps {
-//    show: Show
-//    getShow: (id: {}) => void
-// }
-
-const Show: React.FC<any> = ({ getShow, show }) => {
-   let id: {} = useParams();
+const Show: React.FC<ShowProps> = ({ getShow, show }) => {
+   let id: object = useParams();
 
    useEffect(() => {
       getShow(id);
